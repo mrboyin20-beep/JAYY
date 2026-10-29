@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verify your certificate from Jay Computer Academy instantly">
+    <title>Jay Computer Academy | Certificate Verification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ANIMATED BACKGROUND -->
+    <div class="bg-animation">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text">
+                    <h2>Jay Computer</h2>
+                    <span>ACADEMY</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#verify">Verify</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge"><i class="fas fa-shield-halved"></i> Secure & Trusted Verification</div>
+            <h1>Verify Your <span class="gradient-text">Certificate</span> Instantly</h1>
+            <p>Enter your Certificate ID below to verify its authenticity from Jay Computer Academy</p>
+            <a href="#verify" class="cta-btn">Verify Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- VERIFICATION SECTION -->
+    <section class="verify-section" id="verify">
+        <div class="container">
+            <div class="verify-card">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-certificate"></i></div>
+                    <h2>Certificate Verification</h2>
+                    <p>Enter your Certificate ID to check authenticity</p>
+                </div>
+
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="certInput" placeholder="e.g., JCA-2026-BCC-123456" autocomplete="off">
+                    <button id="verifyBtn">
+                        <i class="fas fa-shield-halved"></i> Verify
+                    </button>
+                </div>
+
+                <div class="sample-hint">
+                    <i class="fas fa-info-circle"></i>
+                    Sample ID: <strong>JCA-2026-BCC-123456</strong>
+                </div>
+
+                <!-- Loading -->
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Verifying certificate from secure database...</p>
+                </div>
+
+                <!-- SUCCESS RESULT -->
+                <div id="resultSuccess" class="result-box success hidden">
+                    <div class="result-header">
+                        <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Certificate Verified Successfully!</h3>
+                        <p>This is a valid certificate issued by Jay Computer Academy</p>
+                    </div>
+
+                    <!-- Student Info -->
+                    <div class="section-divider"><span>Student Information</span></div>
+                    <div class="cert-details">
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-user"></i> Student Name</span>
+                            <span class="value" id="rName">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-envelope"></i> Email</span>
+                            <span class="value" id="rEmail">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-id-badge"></i> Enrollment No.</span>
+                            <span class="value" id="rEnrollment">—</span>
+                        </div>
+                    </div>
+
+                    <!-- Course Info -->
+                    <div class="section-divider"><span>Course Information</span></div>
+                    <div class="cert-details">
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-hashtag"></i> Certificate ID</span>
+                            <span class="value" id="rId">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-book"></i> Course Name</span>
+                            <span class="value" id="rCourse">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-list"></i> Course Details</span>
+                            <span class="value" id="rCourseDetails">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-clock"></i> Duration</span>
+                            <span class="value" id="rDuration">—</span>
+                        </div>
+                    </div>
+
+                    <!-- Score Info -->
+                    <div class="section-divider"><span>Academic Performance</span></div>
+                    <div class="cert-details">
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-star"></i> Exam Score</span>
+                            <span class="value" id="rScore">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-percent"></i> Percentage</span>
+                            <span class="value" id="rPercentage">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-award"></i> Grade</span>
+                            <span class="value" id="rGrade">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-flask"></i> Practical Labs</span>
+                            <span class="value" id="rLabs">—</span>
+                        </div>
+                    </div>
+
+                    <!-- Issue Info -->
+                    <div class="section-divider"><span>Issue Details</span></div>
+                    <div class="cert-details">
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-calendar"></i> Issue Date</span>
+                            <span class="value" id="rDate">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-user-tie"></i> Instructor</span>
+                            <span class="value" id="rInstructor">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label"><i class="fas fa-comment"></i> Remarks</span>
+                            <span class="value" id="rRemarks">—</span>
+                        </div>
+                    </div>
+
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-halved"></i> OFFICIALLY VERIFIED
+                    </div>
+                </div>
+
+                <!-- ERROR RESULT -->
+                <div id="resultError" class="result-box error hidden">
+                    <div class="error-icon"><i class="fas fa-times-circle"></i></div>
+                    <h3>Certificate Not Found</h3>
+                    <p>No certificate found with this ID. Please check your ID and try again.</p>
+                    <p class="small">If you believe this is a mistake, please contact us at <strong>support@jaycomputeracademy.edu</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <h2 class="section-title">Our <span class="gradient-text">Popular Courses</span></h2>
+            <p class="section-subtitle">Build your career with our industry-focused programs</p>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Basic Computer Course</h3>
+                    <p>Computer Fundamentals, MS Office & Internet</p>
+                    <div class="duration"><i class="fas fa-clock"></i> 3 Months</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript & React</p>
+                    <div class="duration"><i class="fas fa-clock"></i> 6 Months</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Graphic Design</h3>
+                    <p>Photoshop, Illustrator & CorelDRAW</p>
+                    <div class="duration"><i class="fas fa-clock"></i> 4 Months</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3>Advanced Excel</h3>
+                    <p>Formulas, VBA & Data Analysis</p>
+                    <div class="duration"><i class="fas fa-clock"></i> 2 Months</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <h2>Need Help?</h2>
+                <p>Contact us if you have any issues with verification</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@jaycomputeracademy.edu</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 XXXXX XXXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Your City, State, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Jay Computer Academy. All Rights Reserved.</p>
+        <p class="sub">व्यावहारिक कंप्यूटर शिक्षण एवं डिजिटल कौशल केंद्र</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
